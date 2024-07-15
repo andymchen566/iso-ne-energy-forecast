@@ -66,9 +66,3 @@ class DataProcessor:
         print(self.final_df)
 
 
-# Example of how to use the DataProcessor class
-if __name__ == "__main__":
-    # Replace 'your_file.csv' with the actual filename
-    processor = DataProcessor('20240710.csv')
-    processor.process()
-    processor.display_final_data()
