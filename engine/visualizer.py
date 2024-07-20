@@ -7,7 +7,7 @@ class PredictionVisualizer:
         self.model = model
         self.scaler = scaler
 
-    def visualize(self, X_test, y_test, start_date, freq='H', save_dir=None):
+    def visualize(self, X_test, y_test, start_date, freq='h', save_dir=None):
         """Visualizes the predicted vs actual values."""
         # Get predictions from the model
         predictions = self.model.predict(X_test)
@@ -33,8 +33,7 @@ class PredictionVisualizer:
         if save_dir:
             os.makedirs(save_dir, exist_ok=True)  # Create directory if it doesn't exist
             plt.savefig(os.path.join(save_dir, 'predictions_plot.png'))
-            plt.close()  # Close the figure to free up memory
+            plt.close()  
             print(f"Plot saved to {os.path.join(save_dir, 'predictions_plot.png')}")
         else:
             plt.show()  # Always display the plot interactively
- 

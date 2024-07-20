@@ -29,7 +29,7 @@ class DataProcessor:
         # Flatten MultiIndex columns
         resampled_actual.columns = ['_'.join(col).strip() for col in resampled_actual.columns.values]
         
-        # Align indices
+        # Align indices (TODO: come up with a more elevant solution)
         resampled_actual.index = resampled_actual.index + pd.to_timedelta(30, unit='m')
 
         # Merge with forecast data
@@ -64,5 +64,3 @@ class DataProcessor:
         """Display the cleaned and prepared data."""
         print("Final DataFrame:")
         print(self.final_df)
-
-

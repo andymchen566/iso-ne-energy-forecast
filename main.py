@@ -1,15 +1,16 @@
-import pandas as pd
 import os
-from data.data_processor import DataProcessor
+import pandas as pd
+from sklearn.model_selection import train_test_split
 from engine.forecast import LSTMModel
-from engine.visualizer import PredictionVisualizer  # Import the visualizer
+from data.data_processor import DataProcessor
+from engine.visualizer import PredictionVisualizer
 
 def process_iso_data():
     # Get the current directory
-    directory = os.getcwd()  # or specify the path
+    directory = os.getcwd()
     csv_files = [f for f in os.listdir(directory) if f.endswith('.csv')]
 
-    all_dfs = []  # List to store DataFrames
+    all_dfs = []
 
     # Process each CSV file
     for csv_file in csv_files:
@@ -21,7 +22,7 @@ def process_iso_data():
     # Concatenate all DataFrames
     merged_df = pd.concat(all_dfs).sort_values(by='BeginDate').reset_index(drop=True)
 
-    return merged_df  # Return the merged DataFrame
+    return merged_df
 
 if __name__ == "__main__":
     # Process and merge the ISO data
@@ -34,7 +35,6 @@ if __name__ == "__main__":
     X, y = lstm_model.preprocess_data()
     
     # Split the data into training and testing sets
-    from sklearn.model_selection import train_test_split
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42, shuffle=False)
     
     # Build the model
@@ -48,5 +48,4 @@ if __name__ == "__main__":
     
     # Visualize predictions
     visualizer = PredictionVisualizer(lstm_model.model, lstm_model.scaler)
-    visualizer.visualize(X_test, y_test, start_date='2024-07-10', save_dir='plots')  # Specify save directory
-
+    visualizer.visualize(X_test, y_test, start_date='2024-07-10', save_dir='plots')

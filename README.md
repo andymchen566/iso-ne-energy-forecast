@@ -4,11 +4,15 @@
 This project harnesses data from ISO New England (ISO-NE) to provide real-time forecasts of electricity demand. By leveraging historical consumption data and employing advanced machine learning algorithms, this project aims to deliver precise and actionable demand forecasts. These insights are crucial for grid operators, energy traders, and stakeholders in optimizing electricity distribution, managing energy portfolios, and mitigating operational risks.
 
 ## Features
-- Real-time forecasting of electricity demand based on historical data.
-- Utilization of machine learning models such as LSTM for improved accuracy.
-- Data processing pipeline to clean and prepare data for analysis.
-- Visualization tools to display forecasted vs. actual demand.
-- Support for handling multiple CSV files containing historical demand data.
+- Uses LSTM for Temporal Dependency Solving
+
+## Next Steps
+[2024-07-14] The current state only accounts for temporal dependency and is limited in predictive power. 
+### Future State: 
+- Feature Extraction (Weather, etc)
+- Hyperparameter Tuning (# hidden layers, # neurons per layer, activation function, loss function)
+- Investigate other algorithms (Basic RNN, GRU)
+- Investigate classical statistics (Generalized Linear Models; ARMA and GARCH Models)
 
 ## Installation
 Follow the steps below to install and configure the project environment.
@@ -59,7 +63,6 @@ The `LSTMModel` class is used to define, train, and evaluate the LSTM model for 
 
 ## Visualization
 The `PredictionVisualizer` class provides tools to visualize the predicted vs. actual demand. This includes options for saving plots to specified directories.
-
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
