@@ -24,12 +24,12 @@ class DataProcessor:
         """Resample the actual data to hourly intervals and calculate statistics."""
         resampled_actual = self.actual_df.resample('h').agg({
             'Mw': ['mean', 'max', 'min', 'std', 'count']
-        })
+        }) #TODO: resampling is not the best way to go here
         
         # Flatten MultiIndex columns
         resampled_actual.columns = ['_'.join(col).strip() for col in resampled_actual.columns.values]
         
-        # Align indices (TODO: come up with a more elevant solution)
+        # Align indices TODO: there must be a more elevant solution
         resampled_actual.index = resampled_actual.index + pd.to_timedelta(30, unit='m')
 
         # Merge with forecast data

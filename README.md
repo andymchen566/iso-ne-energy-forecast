@@ -1,18 +1,27 @@
 # ISO-NE Energy Forecast
 
 ## Description
-This project harnesses data from ISO New England (ISO-NE) to provide real-time forecasts of electricity demand. By leveraging historical consumption data and employing advanced machine learning algorithms, this project aims to deliver precise and actionable demand forecasts. These insights are crucial for grid operators, energy traders, and stakeholders in optimizing electricity distribution, managing energy portfolios, and mitigating operational risks.
+This library harnesses data from ISO New England (ISO-NE) and alternative data sources to provide real-time forecasts of electricity demand, supply, and clearing price. By leveraging historical data and employing machine learning techniques, this project aims to deliver precise and actionable trading signals when potential market mispricing occurs. These insights are crucial for energy traders in optimizing their intraday market-making and position management, for both delta-one and non-linear products. 
 
 ## Features
 - Uses LSTM for Temporal Dependency Solving
 
 ## Next Steps
 [2024-07-14] The current state only accounts for temporal dependency and is limited in predictive power. 
-### Future State: 
-- Feature Extraction (Weather, etc)
-- Hyperparameter Tuning (# hidden layers, # neurons per layer, activation function, loss function)
-- Investigate other algorithms (Basic RNN, GRU)
+[2024-07-20] The model should ultimately allow a power trader to forecast the price of electricity based on a stack model, determined by the price-setting resource. 
+### To-Do's: 
+[2024-07-14] DEMAND SIDE
+- Feature extraction (Temperature, humidity, precipitation, etc.)
+- Hyperparameter tuning (# hidden layers, # neurons per layer, search techniques; activation and loss optimization)
+- Investigate other algorithms and compare (RNN, GRU)
 - Investigate classical statistics (Generalized Linear Models; ARMA and GARCH Models)
+[2024-07-20] SUPPLY SIDE 
+- Create forecasting for each resource (solar, wind, geothermal, etc)
+- Combine forecasted demand with forecasted supply from each resource, as well as offers submitted by each resource provider, to predict the clearing price
+[2024-07-21] PRICING TAIL RISK
+- Investigate tail risk events (hurricanes warnings & occurences; droughts; heat waves; etc.) including forecasts (ISO-NE; alt data) and actual impact
+- Service disruptions from specific resources, either due idiosyncratic (malfunctions) or systemic factors (hurricane warning leading to evacuation of a plant); Ability to accurately forecast the tightening of energy markets due to supply disruptions or demand surge (and vice versa)
+
 
 ## Installation
 Follow the steps below to install and configure the project environment.
@@ -63,6 +72,9 @@ The `LSTMModel` class is used to define, train, and evaluate the LSTM model for 
 
 ## Visualization
 The `PredictionVisualizer` class provides tools to visualize the predicted vs. actual demand. This includes options for saving plots to specified directories.
+
+## Stack Pricing Model
+The `ElectricityPricingModel` class provides methods for adding resource types, offer prices, and capacities. This attempts to simulate ISO-NE's price-setting model based on final demand. 
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.

@@ -53,4 +53,4 @@ pricing_model.add_energy_source('refined_products', 45, 3000)
 demand_mwh = 18001
 price_setter, market_price = pricing_model.calculate_market_price(demand_mwh)
 print(f"The market clearing price is: ${market_price} per MWh")
-print(f"The price-setting energy source is: {price_setter}")
+print(f"The price-setting resource is: {price_setter}")
