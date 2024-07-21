@@ -10,15 +10,17 @@ This library harnesses data from ISO New England (ISO-NE) and alternative data s
 [2024-07-14] The current state only accounts for temporal dependency and is limited in predictive power. 
 [2024-07-20] The model should ultimately allow a power trader to forecast the price of electricity based on a stack model, determined by the price-setting resource. 
 ### To-Do's: 
-[2024-07-14] DEMAND SIDE
+#### [2024-07-14] DEMAND SIDE
 - Feature extraction (Temperature, humidity, precipitation, etc.)
 - Hyperparameter tuning (# hidden layers, # neurons per layer, search techniques; activation and loss optimization)
 - Investigate other algorithms and compare (RNN, GRU)
 - Investigate classical statistics (Generalized Linear Models; ARMA and GARCH Models)
-[2024-07-20] SUPPLY SIDE 
+
+#### [2024-07-20] SUPPLY SIDE 
 - Create forecasting for each resource (solar, wind, geothermal, etc)
 - Combine forecasted demand with forecasted supply from each resource, as well as offers submitted by each resource provider, to predict the clearing price
-[2024-07-21] PRICING TAIL RISK
+
+#### [2024-07-21] PRICING TAIL RISK
 - Investigate tail risk events (hurricanes warnings & occurences; droughts; heat waves; etc.) including forecasts (ISO-NE; alt data) and actual impact
 - Service disruptions from specific resources, either due idiosyncratic (malfunctions) or systemic factors (hurricane warning leading to evacuation of a plant); Ability to accurately forecast the tightening of energy markets due to supply disruptions or demand surge (and vice versa)
 
