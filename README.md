@@ -1,7 +1,7 @@
 # ISO-NE Energy Forecast
 
 ## Description
-This library harnesses data from ISO New England (ISO-NE) and alternative data sources to provide real-time forecasts of electricity demand, supply, and clearing price. By leveraging historical data and employing machine learning techniques, this project aims to deliver precise and actionable trading signals when potential market mispricing occurs. These insights are crucial for energy traders in optimizing their intraday market-making and position management, for both delta-one and non-linear products. 
+This library harnesses data from ISO New England (ISO-NE) and alternative data sources to provide real-time forecasts of electricity demand, supply, and clearing price. By leveraging historical data and employing machine learning techniques, this project aims to deliver precise and actionable trading signals when potential market mispricing occurs. These insights are crucial for energy traders in optimizing their intraday market-making and position management, for both delta-1 and nonlinear products. 
 
 ## Features
 - Uses LSTM for Temporal Dependency Solving
@@ -22,7 +22,7 @@ This library harnesses data from ISO New England (ISO-NE) and alternative data s
 
 #### [2024-07-21] PRICING TAIL RISK
 - Investigate tail risk events (hurricanes warnings & occurences; droughts; heat waves; etc.) including forecasts (ISO-NE; alt data) and actual impact
-- Service disruptions from specific resources, either due idiosyncratic (malfunctions) or systemic factors (hurricane warning leading to evacuation of a plant); Ability to accurately forecast the tightening of energy markets due to supply disruptions or demand surge (and vice versa)
+- Service disruptions from specific resources, either due to idiosyncratic (malfunctions) or systemic factors (hurricane warning leading to evacuation of a plant); Ability to accurately forecast the tightening of energy markets due to supply disruptions or demand surge (and vice versa)
 
 
 ## Installation
