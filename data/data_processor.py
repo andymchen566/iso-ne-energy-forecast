@@ -29,7 +29,7 @@ class DataProcessor:
         # Flatten MultiIndex columns
         resampled_actual.columns = ['_'.join(col).strip() for col in resampled_actual.columns.values]
         
-        # Align indices TODO: there must be a more elevant solution
+        # Align indices TODO: there must be a more elegant solution
         resampled_actual.index = resampled_actual.index + pd.to_timedelta(30, unit='m')
 
         # Merge with forecast data
